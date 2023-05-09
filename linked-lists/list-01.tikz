@@ -1,0 +1,17 @@
+﻿\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+
+\begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2,
+    draw, rectangle split horizontal}, >=stealth, start chain]
+
+	\node[list,on chain] (A) {12};
+	\node[list,on chain] (B) {99};
+	\node[list,on chain] (C) {37};
+	\node[on chain,inner sep=6pt] (D) {NULL};
+	\node(head) [above of=A] {head};
+	\node(tail)  [above of=C] {tail};
+	\draw [->] (head.south) -- (A.north);
+	\draw[->] (tail.south) -- (C.north);
+	\draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+	\draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+	\draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+\end{tikzpicture}

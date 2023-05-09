@@ -1,0 +1,11 @@
+﻿\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+
+\begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2,
+    draw, rectangle split horizontal}, >=stealth, start chain]
+
+	\node[on chain,inner sep=6pt] (A) {NULL};
+	\node(head) [above of=A] {head};
+	\node(tail)  [right of=head] {tail};
+	\draw [->] (head.south) -- (A.north);
+	\draw[->] (tail.south) -- (A.north);
+\end{tikzpicture}
